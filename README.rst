@@ -93,4 +93,5 @@ Settings
 
 * ``BASICAUTH_USERS`` (required): Dictionary including keys as username and values as passwords.
 * ``BASICAUTH_REALM``: realm string, default is "Secure resource".
-* ``BASICAUTH_DISABLE``: Disable all of barriers by this library.
+* ``BASICAUTH_DISABLE``: Disable all barriers by this library.
+* ``BASICAUTH_DISABLE_PATHS``: (List of strings) Disable all barriers when the request path starts with listed paths.

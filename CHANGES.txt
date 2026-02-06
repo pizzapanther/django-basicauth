@@ -1,6 +1,11 @@
 Changes
 =======
 
+0.6.0 (2020-11-17)
+----------------------------
+* Added BASICAUTH_DISABLE_PATHS
+    * Thanks @pizzapanther !
+
 0.5.3 (2020-11-17)
 ----------------------------
 * Added supporting Django3 and Python3.8,3.9
