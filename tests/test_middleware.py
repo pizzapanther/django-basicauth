@@ -38,3 +38,18 @@ class TestBasicAuthMiddleware(TestCase):
             HTTP_AUTHORIZATION="Basic aW52YWxpZDppbnZhbGlk"
         )
         self.assertEqual(res.content, b"Called; login=None")
+
+
+    @override_settings(BASICAUTH_DISABLE_PATHS=['/decorated/'])
+    def test__disable_barriers(self):
+        res = self.client.get(
+            "/decorated/",
+            HTTP_AUTHORIZATION="Basic aW52YWxpZDppbnZhbGlk"
+        )
+        self.assertEqual(res.content, b"Called; login=None")
+
+        res = self.client.get(
+            "/decorated/sub-path",
+            HTTP_AUTHORIZATION="Basic aW52YWxpZDppbnZhbGlk"
+        )
+        self.assertEqual(res.content, b"Called; login=None")

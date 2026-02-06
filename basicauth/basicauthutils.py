@@ -46,6 +46,12 @@ def validate_request(request):
         # Not to use this env
         return True
 
+    disable_paths = getattr(settings, 'BASICAUTH_DISABLE_PATHS', [])
+    if disable_paths:
+        disable_paths = tuple(disable_paths)
+        if request.path.startswith(disable_paths)
+            return True
+
     if 'HTTP_AUTHORIZATION' not in request.META:
         return False
 
